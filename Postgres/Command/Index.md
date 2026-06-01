@@ -1,9 +1,7 @@
 # Check index in 1 table
--- Using \d in psql
-psql > \d users;
+Using \d in psql : psql > \d users;
 
--- Query in pg_indexes
-SELECT * FROM pg_indexes WHERE tablename = 'users';
+Query in pg_indexes : SELECT * FROM pg_indexes WHERE tablename = 'users';
 
 # Check index size
 SELECT
