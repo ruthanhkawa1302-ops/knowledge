@@ -5,7 +5,7 @@ SELECT pg_size_pretty(
 
 # Backup / Restore
 
-## Backup/Restore table
+## Backup/Restore Logical Table
 
 Backup : 
 ```
