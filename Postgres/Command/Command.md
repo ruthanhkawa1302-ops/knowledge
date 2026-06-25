@@ -25,31 +25,8 @@ pg_restore -l employees.dump
 ## Backup / Restore Offline Physical Database
 Backup
 ```
-Sao chép toàn bộ thư mục dữ liệu PostgreSQL.
-
-Ví dụ:
-
-cp -r /var/lib/postgresql/18/main backup/
-
-Hoặc dùng:
-
-tar czvf backup.tar.gz /var/lib/postgresql/18/main
-
-Nhưng phải:
-
 systemctl stop postgresql
-
-trước khi copy.
-
-Ưu điểm:
-
-Restore rất nhanh.
-Backup nguyên trạng cluster.
-
-Nhược điểm:
-
-Phải dừng database nếu chỉ copy thủ công.
-Không thể restore từng table.
+tar czvf backup.tar.gz /var/lib/postgresql/18/main
 ```
 
 Restore
@@ -59,9 +36,10 @@ mv /var/lib/postgresql/18/main /var/lib/postgresql/18/main_old hoặc rm -rf /va
 
 cd /
 tar xzvf backup.tar.gz
-Vì lúc backup bạn tar cả đường dẫn: /var/lib/postgresql/18/main nên sau khi giải nén nó sẽ tạo lại: /var/lib/postgresql/18/main
+#Vì lúc backup bạn tar cả đường dẫn: /var/lib/postgresql/18/main nên sau khi giải nén nó sẽ tạo #lại: /var/lib/postgresql/18/main
 
 chown -R postgres:postgres /var/lib/postgresql/18/main
+sudo systemctl start postgresql
 ```
 
 ## Backup / Restore Online Physical Database
