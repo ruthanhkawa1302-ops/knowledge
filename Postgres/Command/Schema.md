@@ -7,6 +7,6 @@ CREATE TABLE employees (
 
 INSERT INTO employees (department, created_date)
 SELECT
-    'IT',
+    'HR',
     CURRENT_DATE
-FROM generate_series(1,100000);
+FROM generate_series(1,50000);
